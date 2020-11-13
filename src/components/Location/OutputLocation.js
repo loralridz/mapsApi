@@ -12,7 +12,7 @@ export const OutputLocation = ({latitude,longitude}) => {
             <Grid item xs={12}>
                 <Paper className={styles.paper}>
                     <Typography noWrap>
-                        <h4>Latitude : {latitude} , Longitude : {longitude} </h4>
+                        Latitude : {latitude} , Longitude : {longitude} 
                     </Typography>
                 </Paper>
             </Grid>

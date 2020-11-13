@@ -11,9 +11,7 @@ export const ErrorComp = ({error}) => {
         <>
             <Grid item xs={12}>
                 <Paper className={styles.paper}>
-                    <Typography noWrap>
-                        <h2>{error}</h2>
-                        <h4>Sorry, this page doesn't exist</h4>
+                    <Typography noWrap>{error} Sorry, this page doesn't exist
                     </Typography>
                 </Paper>
             </Grid>

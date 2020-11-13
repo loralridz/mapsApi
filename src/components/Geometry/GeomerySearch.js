@@ -18,27 +18,22 @@ export const GeomerySearch = ({ points,formSubmitB }) => {
     return (
         <>
         <Grid item>
-        <Paper className={styles.paper}>
+        <Paper style={{height:"200px"}}  className={styles.paper}>
           <h3>Lat,Lng to location</h3>
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <input
-          className={className("form-control",{"is-invalid":errors.points})}
-
+          className={className("input","form-control",{"is-invalid":errors.points})}
             name="points"
             id="standard-full-width"
             label="Enter lat,lng"
             style={{ margin: 8 }}
-            fullWidth
             margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
             ref={register({
               required:"This field is required",
-              // pattern:{
-              //   value:/^[0-9,]*$/,
-              //   message:"Please enter comma seprated numbers"
-              // }
+              pattern:{
+                value:/[0-9,]/ ,
+                message:"Please enter comma seprated numbers"
+              }
             })}
 
           />

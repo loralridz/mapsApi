@@ -18,20 +18,16 @@ export const Locationsearch = ({ location,formSubmitA }) => {
     return (
         <>
             <Grid item>
-            <Paper className={styles.paper}>
+            <Paper style={{height:"200px"}}  className={styles.paper}>
               <h3>Location to lng,lat</h3>
               <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
               <input
                 name="location"
                 id="standard-full-width"
-                className={className("form-control",{"is-invalid":errors.location})}
+                className={className("input","form-control",{"is-invalid":errors.location})}
                 label="Enter Location"
                 style={{ margin: 8 }}
-                fullWidth
                 margin="normal"
-                InputLabelProps={{
-                  shrink: true,
-                }}
                 ref={register({
                   required:"This field is required",
                   // pattern:{

@@ -4,9 +4,10 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { useStyles } from '../Search';
 import { useForm } from "react-hook-form";
-
 import Button from '@material-ui/core/Button';
+import '../../App.css';
 
+import Typography from '@material-ui/core/Typography';
 export const Distance = ({distanceM,distanceKm,formSubmit}) => {
     const styles = useStyles();
    
@@ -20,31 +21,32 @@ export const Distance = ({distanceM,distanceKm,formSubmit}) => {
 
     return (
         <>
-                <Paper className={styles.paper}>
+                <Paper style={{height:"200px"}}  className={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+                        <h3>Distance Calculator</h3>
                         <Grid container spacing={3}  justify="center" alignItems="center">
                             <Grid item xs={2}>  
-                                <h4>Point 1</h4>
+                            <Typography noWrap>Point 1</Typography>
                             </Grid>  
                             <Grid item xs={5}>
-                                <input  placeholder="Longitude" name="lng1" ref={register} required />
+                                <input className="input" placeholder="Longitude" name="lng1" ref={register} required />
                             </Grid>
                             <Grid item xs={5}>
-                                <input placeholder="Latitude" name="lat1" ref={register} required />
+                                <input className="input" placeholder="Latitude" name="lat1" ref={register} required />
                             </Grid>
                         </Grid>
                         <Grid container spacing={3}  justify="center" alignItems="center">
                             <Grid item xs={2}>
-                                <h4>Point 2</h4>
+                            <Typography noWrap>Point 2</Typography>
                             </Grid>
                             <Grid item xs={5}>
-                                <input placeholder="Longitude" name="lng2"  ref={register} required />
+                                <input className="input" placeholder="Longitude" name="lng2"  ref={register} required />
                             </Grid>
                             <Grid item xs={5}>
-                                <input placeholder="Latitude" name="lat2" ref={register} required />
+                                <input className="input" placeholder="Latitude" name="lat2" ref={register} required />
                             </Grid>   
                             <br/><br/>
-                            <Button variant="contained" type="submit">Calculate</Button>
+                            <Button style={{marginBottom:"1em"}} variant="contained" type="submit">Calculate</Button>
                             </Grid>
                         </form>
                     </Paper>

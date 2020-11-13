@@ -11,9 +11,8 @@ export const OutputDistance = ({distanceKm,distanceM}) => {
         <>
             <Grid item xs={12}>
                 <Paper className={styles.paper}>
-                    <Typography noWrap>
-                        <h4>Distance in Kilometers : {distanceKm}</h4>
-                        <h4>Distance in Miles : {distanceM}</h4>
+                    <Typography noWrap>Distance in Kilometers : {distanceKm}</Typography>
+                    <Typography noWrap>Distance in Miles : {distanceM}
                     </Typography>
                 </Paper>
             </Grid>
