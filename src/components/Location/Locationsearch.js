@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import {useStyles} from '../Searchh';
+import {useStyles} from '../Search';
 import { useForm } from "react-hook-form";
 import className from "classnames";
 

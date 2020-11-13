@@ -2,7 +2,7 @@ import React from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { useStyles } from '../Searchh';
+import { useStyles } from '../Search';
 import { useForm } from "react-hook-form";
 
 import Button from '@material-ui/core/Button';
