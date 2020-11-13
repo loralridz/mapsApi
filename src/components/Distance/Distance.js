@@ -1,34 +1,25 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { useStyles } from '../Search';
-import Input from '@material-ui/core/Input';
+import { useStyles } from '../Searchh';
 import { useForm } from "react-hook-form";
 
 import Button from '@material-ui/core/Button';
-import {OutputDistance} from './OutputDistance';
 
-export const Distance = () => {
-
+export const Distance = ({distanceM,distanceKm,formSubmit}) => {
     const styles = useStyles();
-    const [distanceM, setDistanceM] = useState(0);
-    const [distanceKm, setDistanceKm] = useState(0);
-    const [toggle, setToggle] = useState(false)
+   
     const { handleSubmit, register, errors } = useForm();
 
     const onSubmit = values =>{
-        const km = Math.acos(Math.sin(Math.PI*`${values.lat1}`/180.0)*Math.sin(Math.PI*`${values.lat2}`/180.0)+Math.cos(Math.PI*`${values.lat1}`/180.0)*Math.cos(Math.PI*`${values.lat2}`/180.0)*Math.cos(Math.PI*`${values.lng1}`/180.0-Math.PI*`${values.lng2}`/180.0))*6378
-        const m = Math.acos(Math.sin(Math.PI*`${values.lat1}`/180.0)*Math.sin(Math.PI*`${values.lat2}`/180.0)+Math.cos(Math.PI*`${values.lat1}`/180.0)*Math.cos(Math.PI*`${values.lat2}`/180.0)*Math.cos(Math.PI*`${values.lng1}`/180.0-Math.PI*`${values.lng2}`/180.0))*3963
-         setDistanceKm(km);
-         setDistanceM(m);
-        setToggle(true);
+        distanceKm = Math.acos(Math.sin(Math.PI*`${values.lat1}`/180.0)*Math.sin(Math.PI*`${values.lat2}`/180.0)+Math.cos(Math.PI*`${values.lat1}`/180.0)*Math.cos(Math.PI*`${values.lat2}`/180.0)*Math.cos(Math.PI*`${values.lng1}`/180.0-Math.PI*`${values.lng2}`/180.0))*6378
+        distanceM = Math.acos(Math.sin(Math.PI*`${values.lat1}`/180.0)*Math.sin(Math.PI*`${values.lat2}`/180.0)+Math.cos(Math.PI*`${values.lat1}`/180.0)*Math.cos(Math.PI*`${values.lat2}`/180.0)*Math.cos(Math.PI*`${values.lng1}`/180.0-Math.PI*`${values.lng2}`/180.0))*3963
+        formSubmit(distanceM,distanceKm);
     };
 
     return (
-        <div>
-            
-            
+        <>
                 <Paper className={styles.paper}>
                         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                         <Grid container spacing={3}  justify="center" alignItems="center">
@@ -57,15 +48,6 @@ export const Distance = () => {
                             </Grid>
                         </form>
                     </Paper>
-                    
-                    { toggle ? 
-            <OutputDistance distanceKm={distanceKm} distanceM={distanceM} />
-            
-             : ""
-          }
-                
-
-           
-        </div>
+        </>
     )
 }
